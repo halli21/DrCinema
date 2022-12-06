@@ -8,6 +8,7 @@ import Cinemas from '../views/Cinemas';
 import CinemaDetails from '../views/CinemaDetails';
 import UpComing from '../views/UpComing';
 import UpComingDetails from '../views/UpComingDetails';
+import MovieDetails from '../views/MovieDetails';
 
 
 
@@ -19,7 +20,7 @@ const Routes = () => (
             <Stack.Screen name="CinemaDetails" component={CinemaDetails} />
             <Stack.Screen name="UpComing" component={UpComing} />
             <Stack.Screen name="Up coming movie details" component={UpComingDetails} />
-
+            <Stack.Screen name="MovieDetails" component={MovieDetails} />
         </Stack.Navigator>
     </NavigationContainer>
 );
