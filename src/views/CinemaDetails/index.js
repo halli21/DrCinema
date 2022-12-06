@@ -29,14 +29,25 @@ const CinemaDetails = ( {route,  navigation: {navigate} } ) => {
         console.log(err,"this ting here")
     }
 
+    let newDescription = description
+    for (let i=0; i<newDescription.length; i++) {
+        if (newDescription.includes("<br>")) {
+            newDescription = newDescription.replace("<br>", "");
+        } else if (newDescription.includes("<b>")) {
+            newDescription = newDescription.replace("<b>", "")
+        } else {
+            break
+        }
+    }
+
     return (
         <View style={styles.container} >
-            <Text style={styles.text}>{name}</Text>
-            <Text style={styles.text}>{website}</Text>
-            <Text style={styles.text}>{description}</Text>
-            <Text style={styles.text}>{address}</Text>
-            <Text style={styles.text}>{city}</Text>
-            <Text style={styles.text}>{phone}</Text>
+            <Text style={styles.name}>{name}</Text>
+            <Text style={styles.website}>{website}</Text>
+            <Text style={styles.description}>{newDescription}</Text>
+            <Text style={styles.color}>{address}</Text>
+            <Text style={styles.color}>{city}</Text>
+            <Text style={styles.color}>{phone}</Text>
             <MovieList 
                 onpress={{}}
                 cinemaMovies={cinemaMovies}/>

@@ -14,24 +14,19 @@ const UpComing = ( { navigation: {navigate} } ) => {
     useEffect(() => {
         (async () => {
             dispatch(getUpComing());
-            /*upComingMovies.sort(function(a, b) {
-                const date1 = new Date(a["release-dateIS"])
-                const date2 = new Date(b["release-dateIS"])
-                console.log(date1, "and", date2)
-                console.log(date1 - date2)
-                return date1 - date2;
-             })*/
-
         })();
     }, []);
 
-    upComingMovies.sort(function(a, b) {
-        const date1 = new Date(a["release-dateIS"])
-        const date2 = new Date(b["release-dateIS"])
-        console.log(date1, "and", date2)
-        console.log(date1 - date2)
-        return date1 - date2;
-     })
+    try {
+        upComingMovies.sort(function(a, b) {
+            const date1 = new Date(a["release-dateIS"])
+            const date2 = new Date(b["release-dateIS"])
+            return date1 - date2;
+        })
+    }
+    catch(err) {
+        console.log(err, "sorted ting error ye")
+    }
 
     return (
         <View style={styles.container}>
