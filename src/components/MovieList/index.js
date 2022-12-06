@@ -1,19 +1,17 @@
 import React from 'react';
 import { View, FlatList } from 'react-native';
-import CinemaItem from '../CinemaItem';
+import MovieItem from '../MovieItem';
 import styles from './styles';
  
 
- const CinemaList = ({ onPress, cinemas }) => {
-     //console.log(cinemas[0])
-     //console.log(cinemas[0]["address/t"])
+ const MovieList = ({ onPress, movies }) => {
      return (
         <View style={styles.listContainer}>
             <FlatList 
                numColumns={1}
-               data={cinemas}
+               data={movies}
                renderItem={({ item }) => (
-                   <CinemaItem 
+                   <MovieItem 
                        onPress={onPress}
                        id={item.id}
                        name={item.name}
@@ -27,4 +25,4 @@ import styles from './styles';
     )};
 
 
-export default CinemaList;
+export default MovieList;
