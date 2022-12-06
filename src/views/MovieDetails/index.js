@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, Image } from 'react-native';
 import { useSelector } from 'react-redux';
+import ShowtimeList from '../../components/ShowtimeList'
 
 import styles from './styles';
 
@@ -34,8 +35,12 @@ const MovieDetails = ( {route,  navigation: {navigate} } ) => {
             if (movie.showtimes[i].cinema.id == cinemaId) {
 
                 for (let j = 0; j < movie.showtimes[i].schedule.length; j++) {
-                    console.log(j+ '     '+ movie.showtimes[i].schedule[j])
-                    setShowtimes([...showtimes, movie.showtimes[i].schedule[j]])
+                    console.log('helloooo     '+ movie.showtimes[i].schedule[j])
+                    let newList = [...showtimes, {
+                        time: movie.showtimes[i].schedule[j].time,
+                        purchase_url: movie.showtimes[i].schedule[j].purchase_url
+                    }];
+                    setShowtimes(newList)
                 }
                 break;
             }   
@@ -46,15 +51,17 @@ const MovieDetails = ( {route,  navigation: {navigate} } ) => {
 
     return (
     <View style={styles.container} >
-        <Text>{movie.title}</Text>
+        <Text style={styles.text}>{movie.title}</Text>
         <Image
             style={styles.photo}
             source={{ uri: movie.poster }}
             resizeMode="fit" />
-        <Text>{movie.plot}</Text>
-        <Text>{movie.durationMinutes}</Text>
-        <Text>{movie.year}</Text>
-        <Text>{genreString}</Text>
+        <Text style={styles.text}>{movie.plot}</Text>
+        <Text style={styles.text}>{movie.durationMinutes}</Text>
+        <Text style={styles.text}>{movie.year}</Text>
+        <Text style={styles.text}>{genreString}</Text>
+        <ShowtimeList showtimes={showtimes}/>
+
     
 
     </View>
