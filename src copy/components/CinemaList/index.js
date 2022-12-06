@@ -1,0 +1,23 @@
+import React from 'react';
+import { View, FlatList } from 'react-native';
+import CinemaItem from '../CinemaItem';
+import styles from './styles';
+ 
+
+ const CinemaList = ({ onPress, cinemas }) => (
+     <View style={styles.listContainer}>
+         <FlatList 
+                numColumns={1}
+                data={cinemas}
+                renderItem={({ item }) => (
+                    <CinemaItem 
+                        onPress={onPress}
+                        id={item.id}
+                        name={item.name}
+                        website={item.website} />
+                )} />
+     </View> 
+ );
+
+
+export default CinemaList;
