@@ -7,7 +7,9 @@ export default StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         height: 90,
-        backgroundColor: 'white'
+        backgroundColor: 'white',
+        borderColor: 'black',
+        borderTopWidth: 2
     },
     toolbarAction: {
         flex: 1,

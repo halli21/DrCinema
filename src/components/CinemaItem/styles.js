@@ -19,5 +19,8 @@ export default StyleSheet.create({
         color: 'white',
         borderWidth: 2,
         borderRadius: 10,
+    },
+    name: {
+        fontSize: 25
     }
 });

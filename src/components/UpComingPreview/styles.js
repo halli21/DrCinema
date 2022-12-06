@@ -14,6 +14,7 @@ export default StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         height: 90,
+        width: 350
     },
     photo: {
         resizeMode: 'contain',
@@ -24,9 +25,13 @@ export default StyleSheet.create({
     name: {
         fontSize: 18,
         paddingHorizontal: 20,
-        marginRight: 40
+        width: 270,
+        textAlign: 'center'
     },
     textContainer: {
         alignItems: 'center',
+        justifyContent: 'center',
+        alignSelf: 'center',
+        alignContent: 'center'
     }
 })

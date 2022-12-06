@@ -10,7 +10,7 @@ const CinemaItem = ({ onPress, id, name, website, description, address, city, ph
         style={styles.container}>
 
         <View style={ styles.wrapper }>
-            <Text>{name}</Text>
+            <Text style={styles.name}>{name}</Text>
             <Text>{website}</Text>
         </View> 
     </TouchableOpacity>
