@@ -1,8 +1,8 @@
 import { SELECT_CINEMA } from '../constants';
 
-export const selectCinema = cinema => {
+export const selectCinema = cinemaId => {
     return {
         type: SELECT_CINEMA,
-        payload: { cinema }
+        payload: { cinemaId }
     }
 };

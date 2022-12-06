@@ -20,9 +20,12 @@ const MovieItem = ({ onPress, id, title, releaseYear, genres, poster }) => {
                 style={styles.photo}
                 resizeMode="fit"
                 source={{ uri: poster }}/>
-            <Text>{title}</Text>
-            <Text>{releaseYear}</Text>
-            <Text>{genreString}</Text>
+            <View style={styles.textContainer}>
+                <Text style={styles.title}>{title}</Text>
+                <Text>{releaseYear}</Text>
+            </View>
+            <Text style={styles.genres}>{genreString}</Text>
+            
         </View> 
     </TouchableOpacity>
 )};

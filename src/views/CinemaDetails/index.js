@@ -2,6 +2,7 @@ import React, { useState, useEffect} from 'react';
 import { View, Text } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { getMovies } from '../../actions/moviesActions';
+import { selectCinema } from '../../actions/selectActions';
 import MovieList from '../../components/MovieList';
 import styles from './styles';
 
@@ -17,7 +18,7 @@ const CinemaDetails = ( {route,  navigation: {navigate} } ) => {
     useEffect(() => {
         (async () => {
             dispatch(getMovies());
-            
+            dispatch(selectCinema(id));
         })();
     }, []);
 

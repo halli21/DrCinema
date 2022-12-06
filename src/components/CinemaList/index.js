@@ -5,8 +5,7 @@ import styles from './styles';
  
 
  const CinemaList = ({ onPress, cinemas }) => {
-     //console.log(cinemas[0])
-     //console.log(cinemas[0]["address/t"])
+     
      return (
         <View style={styles.listContainer}>
             <FlatList 
