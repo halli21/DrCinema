@@ -21,6 +21,7 @@ const CinemaDetails = ( {route,  navigation: {navigate} } ) => {
     }, []);
 
     const cinemaMovies = movies.filter(movie => movie.showtimes[0].cinema.id === id);
+    console.log(movies[2].showtimes)
 
     return (
         <View style={styles.container} >

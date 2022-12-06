@@ -3,8 +3,6 @@ import { TouchableOpacity, View, Text, Image } from 'react-native';
 import styles from './styles';
 
 const MovieItem = ({ onPress, id, title, releaseYear, genres, poster }) => {
-    console.log(poster)
-    console.log(genres)
     let genreString = '';
     for (let i = 0; i < genres.length; i++) {
         if (i === genres.length -1) {
