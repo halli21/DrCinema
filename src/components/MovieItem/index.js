@@ -13,7 +13,7 @@ const MovieItem = ({ onPress, id, title, releaseYear, genres, poster }) => {
     }
     return (
     <TouchableOpacity 
-        onPress={() => onPress(id)}
+        onPress={onPress(id)}
         style={styles.container}>
         <View style={ styles.wrapper }>
             <Image 

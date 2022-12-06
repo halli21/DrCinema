@@ -38,7 +38,7 @@ const CinemaDetails = ( {route,  navigation: {navigate} } ) => {
             <Text style={styles.text}>{city}</Text>
             <Text style={styles.text}>{phone}</Text>
             <MovieList 
-                onpress={{}}
+                onPress={id => navigate('MovieDetails', {id: id})}
                 cinemaMovies={cinemaMovies}/>
         </View>
 )};
