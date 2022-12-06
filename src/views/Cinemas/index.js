@@ -21,11 +21,6 @@ const Cinemas = ( { navigation: {navigate} } ) => {
     const cinemas = useSelector(state => state.cinemas)
 
 
-
-
-    
-
-
     useEffect(() => {
         (async () => {
             dispatch(getNewToken());
@@ -34,8 +29,16 @@ const Cinemas = ( { navigation: {navigate} } ) => {
     }, []);
 
     
-
-
+    try {
+        cinemas.sort(function(a, b) {
+            var textA = a.name.toUpperCase();
+            var textB = b.name.toUpperCase();
+            return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+        });
+    }
+    catch(err) {
+        console.log(err,"this cinema ting and dat")
+    }
 
 
     return (
