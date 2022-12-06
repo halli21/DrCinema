@@ -4,7 +4,6 @@ import { StyleSheet } from 'react-native';
 export default StyleSheet.create({
     container: {
         flex: 1,
-        alignItems: 'center',
         backgroundColor: '#5a0f1d'
     },
     text: { 
@@ -13,7 +12,29 @@ export default StyleSheet.create({
     name: {
         color: 'white',
         fontSize: 40,
-        marginTop: 20
+        marginTop: -150,
+        marginBottom: 10,
+        fontWeight: 'bold',
+        alignSelf: 'left',
+        marginLeft: 20
+    },
+    date: {
+        color: 'white',
+        fontSize: 40,
+        marginTop: -15,
+        fontStyle: 'italic',
+        alignSelf: 'left',
+        marginLeft: 20
+    },
+    line: {
+        borderBottomWidth: 2,
+        borderBottomColor: 'white',
+        borderTopWidth: 2,
+        borderTopColor: 'white',
+        width: '87%',
+        marginTop: 20,
+        marginBottom: 30,
+        alignSelf: 'center'
     },
     release: {
         color: 'white',
@@ -23,15 +44,22 @@ export default StyleSheet.create({
     description: {
         color: 'white',
         width: '90%',
-        textAlign: 'center'
+        textAlign: 'center',
+        marginBottom: 15,
+        marginTop: 15
     },
     color: {
         color: 'white'
     },
     photo: {
         resizeMode: 'contain',
-        height: 65,
-        width: 60,
+        width: '100%',
+        height: 500,
         backgroundColor: 'lightgrey'
     },
+    gradient: {
+        height: 500,
+        width: '100%',
+        marginTop: -500
+    }
 })
