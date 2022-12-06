@@ -24,7 +24,7 @@ const CinemaDetails = ( {route,  navigation: {navigate} } ) => {
 
     let cinemaMovies = {};
     try{
-        cinemaMovies = movies.filter(movie => movie.showtimes[0].cinema.id === id);
+        cinemaMovies = movies.filter(movie => movie.showtimes.map(cinemas => {return cinemas.cinema.id}).includes(id)); 
     }
     catch(err) {
         console.log(err,"this ting here")
