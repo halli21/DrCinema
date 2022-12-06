@@ -20,7 +20,14 @@ const CinemaDetails = ( {route,  navigation: {navigate} } ) => {
         })();
     }, []);
 
-    const cinemaMovies = movies.filter(movie => movie.showtimes[0].cinema.id === id);
+
+    let cinemaMovies = {};
+    try{
+        cinemaMovies = movies.filter(movie => movie.showtimes[0].cinema.id === id);
+    }
+    catch(err) {
+        console.log(err,"this ting here")
+    }
 
     return (
         <View style={styles.container} >
