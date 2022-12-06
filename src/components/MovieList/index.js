@@ -17,7 +17,7 @@ import styles from './styles';
                        title={item.title}
                        releaseYear={item.year}
                        genres={item.genres}
-                       poster={item.omdb[0].Poster}
+                       poster={item.poster}
                        />
                )} />
     </View> 
