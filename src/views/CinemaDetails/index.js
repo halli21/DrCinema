@@ -30,13 +30,15 @@ const CinemaDetails = ( {route,  navigation: {navigate} } ) => {
     }
 
     let newDescription = description
-    for (let i=0; i<newDescription.length; i++) {
-        if (newDescription.includes("<br>")) {
-            newDescription = newDescription.replace("<br>", "");
-        } else if (newDescription.includes("<b>")) {
-            newDescription = newDescription.replace("<b>", "")
-        } else {
-            break
+    if (newDescription !== null) {
+        for (let i=0; i<newDescription.length; i++) {
+            if (newDescription.includes("<br>")) {
+                newDescription = newDescription.replace("<br>", "");
+            } else if (newDescription.includes("<b>")) {
+                newDescription = newDescription.replace("<b>", "")
+            } else {
+                break
+            }
         }
     }
 
