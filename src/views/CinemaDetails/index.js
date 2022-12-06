@@ -17,6 +17,7 @@ const CinemaDetails = ( {route,  navigation: {navigate} } ) => {
     useEffect(() => {
         (async () => {
             dispatch(getMovies());
+            
         })();
     }, []);
 
