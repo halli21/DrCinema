@@ -9,6 +9,7 @@ const UpComingDetails = ( { navigation: {navigate} } ) => {
     const { id } = route.params;
     const upComingMovies = useSelector(state => state.upComing)
 
+
     
     return (
         <View style={styles.container}>

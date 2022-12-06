@@ -24,7 +24,7 @@ const CinemaDetails = ( {route,  navigation: {navigate} } ) => {
 
     let cinemaMovies = {};
     try{
-        cinemaMovies = movies.filter(movie => movie.showtimes[0].cinema.id === id);
+        cinemaMovies = movies.filter(movie => movie.showtimes.map(cinemas => {return cinemas.cinema.id}).includes(id)); 
     }
     catch(err) {
         console.log(err,"this ting here")
@@ -52,7 +52,7 @@ const CinemaDetails = ( {route,  navigation: {navigate} } ) => {
             <Text style={styles.color}>{city}</Text>
             <Text style={styles.color}>{phone}</Text>
             <MovieList 
-                onpress={{}}
+                onPress={id => navigate('MovieDetails', {id: id})}
                 cinemaMovies={cinemaMovies}/>
         </View>
 )};

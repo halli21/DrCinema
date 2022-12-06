@@ -8,7 +8,7 @@ const UpComingPreview = ({ onPress, title, poster, release }) => {
     
 
     return (
-        <TouchableOpacity onPress={() => onPress(id)}>
+        <TouchableOpacity onPress={() => onPress(id, title, poster, release)}>
             <View style={styles.container}>
 
                 <Image 
