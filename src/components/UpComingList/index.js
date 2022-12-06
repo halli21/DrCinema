@@ -14,7 +14,9 @@ const UpComingList = ({ onPress, upComingMovies }) => {
                     onPress={onPress}
                     title={item.title}
                     poster={item.poster}
-                    release={item["release-dateIS"]} />
+                    release={item["release-dateIS"]}
+                    trailers={item.trailers}
+                    plot={item.plot}/>
             )}} />
     </View>
     )};

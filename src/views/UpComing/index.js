@@ -31,7 +31,7 @@ const UpComing = ( { navigation: {navigate} } ) => {
     return (
         <View style={styles.container}>
             <UpComingList 
-                onPress={id => navigate('Up coming movie details', {id: id})}
+                onPress={( title, poster, release, trailers, plot) => navigate('Up coming movie details', { title: title, poster: poster, release: release, trailers: trailers, plot: plot})}
                 upComingMovies={upComingMovies}/>
         </View>
 )};

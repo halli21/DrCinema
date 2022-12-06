@@ -4,11 +4,11 @@ import React from 'react';
 import { Text, View, Image, TouchableOpacity} from 'react-native';
 import styles from './styles';
 
-const UpComingPreview = ({ onPress, title, poster, release }) => {
+const UpComingPreview = ({ onPress, title, poster, release, trailers, plot }) => {
     
 
     return (
-        <TouchableOpacity onPress={() => onPress(id, title, poster, release)}>
+        <TouchableOpacity onPress={() => onPress( title, poster, release, trailers, plot)}>
             <View style={styles.container}>
 
                 <Image 
