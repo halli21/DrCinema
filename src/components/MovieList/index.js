@@ -5,7 +5,6 @@ import styles from './styles';
  
 
  const MovieList = ({ onPress, cinemaMovies }) => {
-     console.log(cinemaMovies[0])
      return (
         <View style={styles.listContainer}>
             <FlatList 

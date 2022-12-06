@@ -40,7 +40,6 @@ const dataService = {
         let token = await dataService.getToken();
         const result = await fetch(ENDPOINT_MOVIES + token);
         const json = await result.json()
-        console.log('Movies Done')
         return json
     },
     getUpComing: async () =>{
