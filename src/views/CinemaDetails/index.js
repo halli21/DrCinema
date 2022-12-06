@@ -1,7 +1,7 @@
 import React, { useState, useEffect} from 'react';
 import { View, Text } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
-import { movies } from '../../actions/moviesActions';
+import { getMovies } from '../../actions/moviesActions';
 import styles from './styles';
 
 
@@ -13,7 +13,7 @@ const CinemaDetails = ( {route,  navigation: {navigate} } ) => {
 
     useEffect(() => {
         (async () => {
-            dispatch(movies());
+            dispatch(getMovies());
 
         })();
     }, []);
