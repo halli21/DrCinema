@@ -20,9 +20,7 @@ const CinemaDetails = ( {route,  navigation: {navigate} } ) => {
         })();
     }, []);
 
-
-    const cinemaMovies = movies.filter(movie => movie.showtimes[0].cinema.id === id)
-    console.log(cinemaMovies[0].showtimes)
+    const cinemaMovies = movies.filter(movie => movie.showtimes[0].cinema.id === id);
 
     return (
         <View style={styles.container} >
@@ -32,7 +30,9 @@ const CinemaDetails = ( {route,  navigation: {navigate} } ) => {
             <Text style={styles.text}>{address}</Text>
             <Text style={styles.text}>{city}</Text>
             <Text style={styles.text}>{phone}</Text>
-            <MovieList />
+            <MovieList 
+                onpress={{}}
+                cinemaMovies={cinemaMovies}/>
         </View>
 )};
 

@@ -19,5 +19,11 @@ export default StyleSheet.create({
         color: 'white',
         borderWidth: 2,
         borderRadius: 10,
-    }
+    },
+    photo: {
+        resizeMode: 'contain',
+        height: 65,
+        width: 60,
+        backgroundColor: 'lightgrey'
+    },
 });
