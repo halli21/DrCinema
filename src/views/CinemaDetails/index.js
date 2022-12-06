@@ -1,16 +1,31 @@
 import React, { useState, useEffect} from 'react';
 import { View, Text } from 'react-native';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { movies } from '../../actions/moviesActions';
 import styles from './styles';
 
 
 
-const CinemaDetails = ( { navigation: {navigate} } ) => {
-    const { contact, addContact } = route.params;
+const CinemaDetails = ( {route,  navigation: {navigate} } ) => {
+    const { id, name, website, description, address, city, phone } = route.params;
+    const dispatch = useDispatch();
+    const movies = useSelector(state => state.movies)
+
+    useEffect(() => {
+        (async () => {
+            dispatch(movies());
+
+        })();
+    }, []);
 
     return (
-        <View >
-            <Text>CinemaDetails</Text>
+        <View style={styles.container} >
+            <Text style={styles.text}>{name}</Text>
+            <Text style={styles.text}>{website}</Text>
+            <Text style={styles.text}>{description}</Text>
+            <Text style={styles.text}>{address}</Text>
+            <Text style={styles.text}>{city}</Text>
+            <Text style={styles.text}>{phone}</Text>
         </View>
 )};
 
