@@ -3,7 +3,7 @@ import { View, FlatList } from 'react-native';
 import UpComingPreview from '../UpComingPreview'
 import styles from './styles'
 
-const UpComingList = ({ upComingMovies }) => {
+const UpComingList = ({ onPress, upComingMovies }) => {
     return(
     <View style={styles.container} >
         <FlatList
@@ -11,6 +11,7 @@ const UpComingList = ({ upComingMovies }) => {
             renderItem={({ item }) => {
                 return (
                 <UpComingPreview 
+                    onPress={onPress}
                     title={item.title}
                     poster={item.poster}
                     release={item["release-dateIS"]} />

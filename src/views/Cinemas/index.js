@@ -41,7 +41,7 @@ const Cinemas = ( { navigation: {navigate} } ) => {
     return (
         <View style={styles.container}>
             <CinemaList 
-                onPress={(id, name, website, description, address, city, phone) => navigate('CinemaDetails',{id: id, name: name, website: website, description: description, address: address, city: city, phone: phone})}
+                onPress={(id, name, website, description, address, city, phone) => navigate('CinemaDetails', {id: id, name: name, website: website, description: description, address: address, city: city, phone: phone})}
                 cinemas={cinemas}/>
             <Toolbar onPress={() => navigate('UpComing')}/>
         </View>
