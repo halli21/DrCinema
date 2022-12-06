@@ -5,6 +5,7 @@ import styles from './styles';
  
 
  const MovieList = ({ onPress, cinemaMovies }) => {
+     console.log(cinemaMovies[0])
      return (
         <View style={styles.listContainer}>
             <FlatList 
@@ -17,7 +18,7 @@ import styles from './styles';
                        title={item.title}
                        releaseYear={item.year}
                        genres={item.genres}
-                       poster={item.poster}
+                       poster={item.omdb[0].Poster}
                        />
                )} />
     </View> 
