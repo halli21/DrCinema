@@ -7,6 +7,18 @@ export default StyleSheet.create({
         alignItems: 'center',
         backgroundColor: '#5a0f1d'
     },
+    infoDrop: {
+        padding: 5,
+        width: 30,
+        height: 30,
+        alignItems: 'center',
+        marginLeft: 300,
+        marginTop: -30
+    },
+    infoDropText: {
+        fontSize: 20,
+        color: 'white'
+    },
     text: { 
         color: 'white',
     },

@@ -9,9 +9,17 @@ import YoutubePlayer from 'react-native-youtube-iframe';
 const UpComingDetails = ( { route, navigation: {navigate} } ) => {
     const { title, poster, release, trailers, plot  } = route.params;
     const upComingMovies = useSelector(state => state.upComing)
+    let trailer = false
     console.log('upComingDetails', trailers.map(trailer => {return trailer.results[0]}))
-    const trailer = trailers.map(trailer => {return trailer.results[0].key})[0]
-    console.log('trailer', trailer)
+
+    try {
+        trailer = trailers.map(trailer => {return trailer.results[0].key})[0]
+        console.log('trailer', trailer)
+    }
+    catch(err) {
+        console.log("No trailer found")
+    }
+    
 
     
     return (
@@ -26,11 +34,15 @@ const UpComingDetails = ( { route, navigation: {navigate} } ) => {
             <Text style={styles.date}>{release}</Text>
             <View style={styles.line}><Text style={styles.description}>{plot}</Text></View>
             <View style={{alignItems: 'center'}}>
+                {trailer
+                ?
                 <YoutubePlayer 
                     height={500}
                     width={350}
                     play={false}
                     videoId={trailer}/>
+                :
+                <Text style={styles.trailerText}>No trailer available</Text>}
             </View>
         </ScrollView>
 )};

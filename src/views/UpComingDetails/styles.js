@@ -45,6 +45,7 @@ export default StyleSheet.create({
         color: 'white',
         width: '90%',
         textAlign: 'center',
+        alignSelf: 'center',
         marginBottom: 15,
         marginTop: 15
     },
@@ -61,5 +62,11 @@ export default StyleSheet.create({
         height: 500,
         width: '100%',
         marginTop: -500
+    },
+    trailerText: {
+        color: 'white',
+        width: '90%',
+        textAlign: 'center',
+        marginBottom: 15
     }
 })

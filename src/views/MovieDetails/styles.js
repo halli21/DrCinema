@@ -63,5 +63,13 @@ export default StyleSheet.create({
     genres: {
         color: 'white',
         alignSelf: 'center',
+        fontStyle: 'italic'
+    },
+    showTitle: {
+        color: 'white',
+        fontSize: 20,
+        alignSelf: 'left',
+        marginLeft: 20,
+        marginTop: 30
     }
 });
