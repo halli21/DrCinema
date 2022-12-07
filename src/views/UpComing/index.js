@@ -3,6 +3,7 @@ import { View, Text } from 'react-native';
 import { useDispatch, useSelector  } from 'react-redux';
 import UpComingList from '../../components/UpComingList';
 import { getUpComing } from '../../actions/upComingActions';
+import Spinner from '../../components/Spinner';
 import styles from './styles';
 
 
@@ -11,9 +12,13 @@ const UpComing = ( { navigation: {navigate} } ) => {
     const dispatch = useDispatch();
     const upComingMovies = useSelector(state => state.upComing)
 
+    const [loadingUpComing, setLoadingUpComing] = useState(false);
+
+
     useEffect(() => {
         (async () => {
-            dispatch(getUpComing());
+            dispatch(getUpComing());   
+     
         })();
     }, []);
 
@@ -28,11 +33,19 @@ const UpComing = ( { navigation: {navigate} } ) => {
         console.log(err, "sorted ting error ye")
     }
 
+
     return (
         <View style={styles.container}>
-            <UpComingList 
-                onPress={( title, poster, release, trailers, plot) => navigate('Up coming movie details', { title: title, poster: poster, release: release, trailers: trailers, plot: plot})}
-                upComingMovies={upComingMovies}/>
+            {
+                loadingUpComing
+                    ?
+                    <Spinner />
+                    :
+                    <UpComingList 
+                        onPress={( title, poster, release, trailers, plot) => navigate('Up coming movie details', { title: title, poster: poster, release: release, trailers: trailers, plot: plot})}
+                        upComingMovies={upComingMovies}/>
+            }
+            
         </View>
 )};
 

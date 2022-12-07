@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, Image } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useSelector } from 'react-redux';
+import ShowtimeList from '../../components/ShowtimeList'
 
 import styles from './styles';
 
@@ -35,8 +36,12 @@ const MovieDetails = ( {route,  navigation: {navigate} } ) => {
             if (movie.showtimes[i].cinema.id == cinemaId) {
 
                 for (let j = 0; j < movie.showtimes[i].schedule.length; j++) {
-                    console.log(j+ '     '+ movie.showtimes[i].schedule[j])
-                    setShowtimes([...showtimes, movie.showtimes[i].schedule[j]])
+                    console.log('helloooo     '+ movie.showtimes[i].schedule[j])
+                    let newList = [...showtimes, {
+                        time: movie.showtimes[i].schedule[j].time,
+                        purchase_url: movie.showtimes[i].schedule[j].purchase_url
+                    }];
+                    setShowtimes(newList)
                 }
                 break;
             }   
@@ -60,7 +65,6 @@ const MovieDetails = ( {route,  navigation: {navigate} } ) => {
         <View style={styles.line}><Text style={styles.plot}>{movie.plot}</Text></View>
         <Text style={styles.genres}>{genreString}</Text>
     
-
     </View>
 )};
 
