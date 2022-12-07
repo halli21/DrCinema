@@ -39,13 +39,26 @@ const Cinemas = ( { navigation: {navigate} } ) => {
     catch(err) {
         console.log(err,"this cinema ting and dat")
     }
+    let newCinemas = []
+    try{
+        newCinemas = cinemas.map(c => {
+            const parsed = {};
+            // The property for 'address' included 4 spaces for some funky reason ( 'address    ' )
+            Object.keys(c).forEach(key => parsed[key.trim()] = c[key]);
+            return parsed;
+      })
+    }
+    catch(err) {
+        console.log(err,"this cinema ting and dat")
+    }
 
+    console.log('new', newCinemas)
 
     return (
         <View style={styles.container}>
             <CinemaList 
                 onPress={(id, name, website, description, address, city, phone) => navigate('CinemaDetails', {id: id, name: name, website: website, description: description, address: address, city: city, phone: phone})}
-                cinemas={cinemas}/>
+                cinemas={newCinemas}/>
             <Toolbar onPress={() => navigate('UpComing')}/>
         </View>
 )};

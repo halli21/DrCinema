@@ -5,7 +5,7 @@ import styles from './styles';
  
 
  const CinemaList = ({ onPress, cinemas }) => {
-     
+              
      return (
         <View style={styles.listContainer}>
             <FlatList 
@@ -18,7 +18,7 @@ import styles from './styles';
                        name={item.name}
                        website={item.website}
                        description={item.description}
-                       address={item["address      "]}
+                       address={item.address}
                        city={item.city}
                        phone={item.phone}/>
                )} />
