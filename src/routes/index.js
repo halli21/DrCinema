@@ -17,10 +17,10 @@ const Routes = () => (
     <NavigationContainer>
         <Stack.Navigator initialRouteName='Cinemas'>
             <Stack.Screen name="Cinemas" component={Cinemas} />
-            <Stack.Screen name="CinemaDetails" component={CinemaDetails} />
-            <Stack.Screen name="UpComing" component={UpComing} />
+            <Stack.Screen name="Cinema details" component={CinemaDetails} />
+            <Stack.Screen name="Up coming movies" component={UpComing} />
             <Stack.Screen name="Up coming movie details" component={UpComingDetails} />
-            <Stack.Screen name="MovieDetails" component={MovieDetails} />
+            <Stack.Screen name="Movie details" component={MovieDetails} />
         </Stack.Navigator>
     </NavigationContainer>
 );

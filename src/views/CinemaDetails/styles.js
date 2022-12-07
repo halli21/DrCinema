@@ -27,5 +27,19 @@ export default StyleSheet.create({
     },
     color: {
         color: 'white'
+    },
+    colorLast: {
+        color: 'white',
+        paddingBottom: 15
+    },
+    noMovies: {
+        color: 'white',
+        paddingBottom: 320,
+        fontSize: 25,
+        textAlign: 'center',
+        fontWeight: 'bold',
+        fontStyle: 'italic'
+
+
     }
 })

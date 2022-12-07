@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getMovies } from '../../actions/moviesActions';
 import { selectCinema } from '../../actions/selectActions';
 import MovieList from '../../components/MovieList';
+import Spinner from '../../components/Spinner';
 import styles from './styles';
 
 
@@ -13,7 +14,11 @@ const CinemaDetails = ( {route,  navigation: {navigate} } ) => {
     const dispatch = useDispatch();
     const movies = useSelector(state => state.movies)
 
-    
+    const [loadingCinemaMovies, setLoadingCinemaMovies] = useState(true);
+    const [noMovies, setNoMovies] = useState(true);
+
+
+
 
     useEffect(() => {
         (async () => {
@@ -30,6 +35,20 @@ const CinemaDetails = ( {route,  navigation: {navigate} } ) => {
     catch(err) {
         console.log(err,"this ting here")
     }
+
+    useEffect(() => {
+        if (movies.length > 0) {
+            setLoadingCinemaMovies(false);
+
+        }
+        if (cinemaMovies.length === 0) {
+            setLoadingCinemaMovies(false);
+            console.log('here')
+            setNoMovies(false)
+        }
+    },[movies]);
+
+    
 
     let newDescription = description
     if (newDescription !== null) {
@@ -51,10 +70,23 @@ const CinemaDetails = ( {route,  navigation: {navigate} } ) => {
             <Text style={styles.description}>{newDescription}</Text>
             <Text style={styles.color}>{address}</Text>
             <Text style={styles.color}>{city}</Text>
-            <Text style={styles.color}>{phone}</Text>
-            <MovieList 
-                onPress={id => navigate('MovieDetails', {id: id})}
-                cinemaMovies={cinemaMovies}/>
+            <Text style={styles.colorLast}>{phone}</Text>
+            {
+                loadingCinemaMovies
+                    ?
+                    <Spinner />
+                    :
+                    <MovieList 
+                    onPress={id => navigate('Movie details', {id: id})}
+                    cinemaMovies={cinemaMovies}/>
+            }
+            {
+                noMovies
+                    ?
+                    <Text></Text>
+                    :
+                    <Text style={styles.noMovies}>Sorry no movies are being shown!</Text>
+            }
         </View>
 )};
 
