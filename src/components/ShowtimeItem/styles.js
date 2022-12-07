@@ -14,7 +14,6 @@ export default StyleSheet.create({
     wrapper: {
         width: '90%',
         marginTop: 15,
-        alignItems: 'center',
         marginLeft: 25,
         marginRight: 10,
         paddingLeft: 25,
@@ -27,14 +26,25 @@ export default StyleSheet.create({
         borderWidth: 2,
         borderRadius: 10,
         display: 'flex',
-        alignSelf: 'center'
+        alignSelf: 'center',
+        flexDirection: 'row',
+        height: 70,
+        alignItems: 'center',
+        justifyContent: 'center',
+
+    
+
     },
     button: {
         borderWidth: 2,
-        borderColor: 'grey',
+        borderColor: '#5a0f1d',
         borderRadius: 5,
         padding: 5,
-        backgroundColor: 'grey',
-        alignSelf: 'center'
+        backgroundColor: '#5a0f1d',
+        alignSelf: 'center',
+        marginLeft: 10
+    },
+    buttonText: {
+        color: 'white',
     }
 });

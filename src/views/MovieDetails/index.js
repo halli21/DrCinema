@@ -17,7 +17,6 @@ const MovieDetails = ( {route,  navigation: {navigate} } ) => {
     const [showtimes, setShowtimes] = useState([])
 
 
-    console.log(movie.showtimes[0].schedule)
 
     let genres = movie.genres
     let genreString = '';
