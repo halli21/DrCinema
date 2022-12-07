@@ -37,7 +37,7 @@ const Cinemas = ( { navigation: {navigate} } ) => {
         });
     }
     catch(err) {
-        console.log(err,"this cinema ting and dat")
+        console.log(err)
     }
     let newCinemas = []
     try{
@@ -49,10 +49,9 @@ const Cinemas = ( { navigation: {navigate} } ) => {
       })
     }
     catch(err) {
-        console.log(err,"this cinema ting and dat")
+        console.log(err)
     }
 
-    console.log('new', newCinemas)
 
     return (
         <View style={styles.container}>

@@ -28,7 +28,7 @@ const CinemaDetails = ( {route,  navigation: {navigate} } ) => {
         cinemaMovies = movies.filter(movie => movie.showtimes.map(cinemas => {return cinemas.cinema.id}).includes(id)); 
     }
     catch(err) {
-        console.log(err,"this ting here")
+        console.log(err)
     }
 
     let newDescription = description

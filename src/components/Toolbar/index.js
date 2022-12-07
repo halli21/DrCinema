@@ -7,7 +7,7 @@ const Toolbar = ({ onPress }) => (
         <TouchableHighlight 
             style={styles.toolbarAction}
             onPress={onPress}>
-            <Text style={styles.toolbarActionText}>See up coming movies!</Text>
+            <Text style={styles.toolbarActionText}>See upcoming movies!</Text>
         </TouchableHighlight>
     </View>
 );

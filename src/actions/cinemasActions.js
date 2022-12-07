@@ -3,7 +3,6 @@ import dataService from "../services/dataServices";
 
 export const getCinemas = () => async dispatch => {
     const cinemas = await dataService.getCinemas();
-    console.log(`Inside action cinemas:`)
     dispatch(getCinemasSuccess(cinemas));
 };
 
