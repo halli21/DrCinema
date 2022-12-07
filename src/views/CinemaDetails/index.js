@@ -1,6 +1,8 @@
 import React, { useState, useEffect} from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, TouchableHighlight } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
+import { AntDesign } from '@expo/vector-icons';
+//import { UpCircleOutlined } from '@ant-design/icons';
 import { getMovies } from '../../actions/moviesActions';
 import { selectCinema } from '../../actions/selectActions';
 import MovieList from '../../components/MovieList';
@@ -13,6 +15,7 @@ const CinemaDetails = ( {route,  navigation: {navigate} } ) => {
     const dispatch = useDispatch();
     const movies = useSelector(state => state.movies)
 
+    let [infoDrop, setInfoDrop] = useState(true);
     
 
     useEffect(() => {
@@ -44,14 +47,27 @@ const CinemaDetails = ( {route,  navigation: {navigate} } ) => {
         }
     }
 
+    const infoDropPress = () => {
+        setInfoDrop(!infoDrop);
+    }
+
     return (
-        <View style={styles.container} >
+        <View style={styles.container} > 
             <Text style={styles.name}>{name}</Text>
             <Text style={styles.website}>{website}</Text>
-            <Text style={styles.description}>{newDescription}</Text>
-            <Text style={styles.color}>{address}</Text>
-            <Text style={styles.color}>{city}</Text>
-            <Text style={styles.color}>{phone}</Text>
+            <Text style={infoDrop?styles.description : {display: 'none'}}>{newDescription}</Text>
+            <Text style={infoDrop?styles.color : {display: 'none'}}>{address}</Text>
+            <Text style={infoDrop?styles.color : {display: 'none'}}>{city}</Text>
+            <Text style={infoDrop?styles.color : {display: 'none'}}>{phone}</Text>
+            <TouchableHighlight 
+                style={styles.infoDrop}
+                onPress={() => infoDropPress()}>
+                {infoDrop
+                ?
+                <AntDesign name="upcircleo" style={styles.infoDropText} />
+                :
+                <AntDesign name="downcircleo" style={styles.infoDropText} />}
+            </TouchableHighlight>
             <MovieList 
                 onPress={id => navigate('MovieDetails', {id: id})}
                 cinemaMovies={cinemaMovies}/>
@@ -59,3 +75,7 @@ const CinemaDetails = ( {route,  navigation: {navigate} } ) => {
 )};
 
 export default CinemaDetails;
+
+//                <Text style={styles.infoDropText}>^</Text>
+//<AntDesign name="uparrow" style={styles.infoDropText} />
+//<UpCircleOutlined />
