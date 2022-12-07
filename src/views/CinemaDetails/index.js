@@ -78,7 +78,7 @@ const CinemaDetails = ( {route,  navigation: {navigate} } ) => {
             <Text style={infoDrop?styles.description : {display: 'none'}}>{newDescription}</Text>
             <Text style={infoDrop?styles.color : {display: 'none'}}>{address}</Text>
             <Text style={infoDrop?styles.color : {display: 'none'}}>{city}</Text>
-            <Text style={infoDrop?styles.color : {display: 'none'}}>{phone}</Text>
+            <Text style={infoDrop?styles.colorLast : {display: 'none'}}>{phone}</Text>
             <TouchableHighlight 
                 style={styles.infoDrop}
                 onPress={() => infoDropPress()}>
