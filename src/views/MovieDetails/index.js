@@ -62,6 +62,7 @@ const MovieDetails = ( {route,  navigation: {navigate} } ) => {
         <Text style={styles.duration}>{movie.durationMinutes} min.</Text>
         <View style={styles.line}><Text style={styles.plot}>{movie.plot}</Text></View>
         <Text style={styles.genres}>{genreString}</Text>
+        <ShowtimeList showtimes={showtimes} />
     
     </View>
 )};
