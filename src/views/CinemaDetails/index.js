@@ -1,9 +1,12 @@
 import React, { useState, useEffect} from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, TouchableHighlight } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
+import { AntDesign } from '@expo/vector-icons';
+//import { UpCircleOutlined } from '@ant-design/icons';
 import { getMovies } from '../../actions/moviesActions';
 import { selectCinema } from '../../actions/selectActions';
 import MovieList from '../../components/MovieList';
+import Spinner from '../../components/Spinner';
 import styles from './styles';
 
 
@@ -13,6 +16,12 @@ const CinemaDetails = ( {route,  navigation: {navigate} } ) => {
     const dispatch = useDispatch();
     const movies = useSelector(state => state.movies)
 
+    const [loadingCinemaMovies, setLoadingCinemaMovies] = useState(true);
+    const [noMovies, setNoMovies] = useState(true);
+
+
+
+    let [infoDrop, setInfoDrop] = useState(true);
     
 
     useEffect(() => {
@@ -31,6 +40,20 @@ const CinemaDetails = ( {route,  navigation: {navigate} } ) => {
         console.log(err)
     }
 
+    useEffect(() => {
+        if (movies.length > 0) {
+            setLoadingCinemaMovies(false);
+
+        }
+        if (cinemaMovies.length === 0) {
+            setLoadingCinemaMovies(false);
+            console.log('here')
+            setNoMovies(false)
+        }
+    },[movies]);
+
+    
+
     let newDescription = description
     if (newDescription !== null) {
         for (let i=0; i<newDescription.length; i++) {
@@ -44,18 +67,48 @@ const CinemaDetails = ( {route,  navigation: {navigate} } ) => {
         }
     }
 
+    const infoDropPress = () => {
+        setInfoDrop(!infoDrop);
+    }
+
     return (
-        <View style={styles.container} >
+        <View style={styles.container} > 
             <Text style={styles.name}>{name}</Text>
             <Text style={styles.website}>{website}</Text>
-            <Text style={styles.description}>{newDescription}</Text>
-            <Text style={styles.color}>{address}</Text>
-            <Text style={styles.color}>{city}</Text>
-            <Text style={styles.color}>{phone}</Text>
-            <MovieList 
-                onPress={id => navigate('MovieDetails', {id: id})}
-                cinemaMovies={cinemaMovies}/>
+            <Text style={infoDrop?styles.description : {display: 'none'}}>{newDescription}</Text>
+            <Text style={infoDrop?styles.color : {display: 'none'}}>{address}</Text>
+            <Text style={infoDrop?styles.color : {display: 'none'}}>{city}</Text>
+            <Text style={infoDrop?styles.colorLast : {display: 'none'}}>{phone}</Text>
+            <TouchableHighlight 
+                style={styles.infoDrop}
+                onPress={() => infoDropPress()}>
+                {infoDrop
+                ?
+                <AntDesign name="upcircleo" style={styles.infoDropText} />
+                :
+                <AntDesign name="downcircleo" style={styles.infoDropText} />}
+            </TouchableHighlight>
+            {
+                loadingCinemaMovies
+                    ?
+                    <Spinner />
+                    :
+                    <MovieList 
+                    onPress={id => navigate('Movie details', {id: id})}
+                    cinemaMovies={cinemaMovies}/>
+            }
+            {
+                noMovies
+                    ?
+                    <Text></Text>
+                    :
+                    <Text style={styles.noMovies}>Sorry no movies are being shown!</Text>
+            }
         </View>
 )};
 
 export default CinemaDetails;
+
+//                <Text style={styles.infoDropText}>^</Text>
+//<AntDesign name="uparrow" style={styles.infoDropText} />
+//<UpCircleOutlined />

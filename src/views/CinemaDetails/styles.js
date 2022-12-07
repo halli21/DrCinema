@@ -7,6 +7,18 @@ export default StyleSheet.create({
         alignItems: 'center',
         backgroundColor: '#5a0f1d'
     },
+    infoDrop: {
+        padding: 5,
+        width: 30,
+        height: 30,
+        alignItems: 'center',
+        marginLeft: 300,
+        marginTop: -30
+    },
+    infoDropText: {
+        fontSize: 20,
+        color: 'white'
+    },
     text: { 
         color: 'white',
     },
@@ -27,5 +39,19 @@ export default StyleSheet.create({
     },
     color: {
         color: 'white'
+    },
+    colorLast: {
+        color: 'white',
+        paddingBottom: 15
+    },
+    noMovies: {
+        color: 'white',
+        paddingBottom: 320,
+        fontSize: 25,
+        textAlign: 'center',
+        fontWeight: 'bold',
+        fontStyle: 'italic'
+
+
     }
 })

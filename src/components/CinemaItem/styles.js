@@ -12,7 +12,7 @@ export default StyleSheet.create({
         marginTop: 15,
         alignItems: 'center',
         marginLeft: 25,
-        marginRight: 5,
+        marginRight: 10,
         padding: 25,
         borderColor: 'black',
         backgroundColor: 'white',

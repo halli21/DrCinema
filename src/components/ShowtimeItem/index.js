@@ -7,7 +7,9 @@ const ShowtimeItem = ({ time, purchase }) => {
     return (
     <View style={ styles.wrapper }>
         <Text style={styles.text}>{time}</Text>
-        <TouchableOpacity onPress={() => Linking.canOpenURL(purchase).then(() => {Linking.openURL(purchase)})}>
+        <TouchableOpacity 
+            style={styles.button}
+            onPress={() => Linking.canOpenURL(purchase).then(() => {Linking.openURL(purchase)})}>
             <Text>Purchase Ticket</Text>
         </TouchableOpacity>
     </View> 

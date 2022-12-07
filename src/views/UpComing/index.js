@@ -12,7 +12,7 @@ const UpComing = ( { navigation: {navigate} } ) => {
     const dispatch = useDispatch();
     const upComingMovies = useSelector(state => state.upComing)
 
-    const [loadingUpComing, setLoadingUpComing] = useState(false);
+    const [loadingUpComing, setLoadingUpComing] = useState(true);
 
 
     useEffect(() => {
@@ -22,6 +22,13 @@ const UpComing = ( { navigation: {navigate} } ) => {
         })();
     }, []);
 
+
+    useEffect(() => {
+        if (upComingMovies.length > 0) {
+            setLoadingUpComing(false)
+        }
+    },[upComingMovies]);
+    
     try {
         upComingMovies.sort(function(a, b) {
             const date1 = new Date(a["release-dateIS"])

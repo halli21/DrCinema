@@ -3,6 +3,7 @@ import { View, Text, TouchableOpacity, TouchableHighlight } from 'react-native';
 import { useDispatch, useSelector  } from 'react-redux';
 import Toolbar from '../../components/Toolbar';
 import CinemaList from '../../components/CinemaList';
+import Spinner from '../../components/Spinner';
 import styles from './styles';
 
 
@@ -20,6 +21,8 @@ const Cinemas = ( { navigation: {navigate} } ) => {
     const dispatch = useDispatch();
     const cinemas = useSelector(state => state.cinemas)
 
+    const [loadingCinemas, setLoadingCinemas] = useState(true);
+
 
     useEffect(() => {
         (async () => {
@@ -28,6 +31,11 @@ const Cinemas = ( { navigation: {navigate} } ) => {
         })();
     }, []);
 
+    useEffect(() => {
+        if (cinemas.length > 0) {
+            setLoadingCinemas(false)
+        }
+    },[cinemas]);
     
     try {
         cinemas.sort(function(a, b) {
@@ -55,10 +63,16 @@ const Cinemas = ( { navigation: {navigate} } ) => {
 
     return (
         <View style={styles.container}>
-            <CinemaList 
-                onPress={(id, name, website, description, address, city, phone) => navigate('CinemaDetails', {id: id, name: name, website: website, description: description, address: address, city: city, phone: phone})}
-                cinemas={newCinemas}/>
-            <Toolbar onPress={() => navigate('UpComing')}/>
+            {
+                loadingCinemas
+                    ?
+                    <Spinner />
+                    :
+                    <CinemaList 
+                        onPress={(id, name, website, description, address, city, phone) => navigate('Cinema details', {id: id, name: name, website: website, description: description, address: address, city: city, phone: phone})}
+                        cinemas={newCinemas}/>
+            }
+            <Toolbar onPress={() => navigate('Up coming movies')}/>
         </View>
 )};
 
