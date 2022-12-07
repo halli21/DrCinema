@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, Image } from 'react-native';
+import { LinearGradient } from 'expo-linear-gradient';
 import { useSelector } from 'react-redux';
 import ShowtimeList from '../../components/ShowtimeList'
 
@@ -49,19 +50,19 @@ const MovieDetails = ( {route,  navigation: {navigate} } ) => {
 
     return (
     <View style={styles.container} >
-        <Text style={styles.text}>{movie.title}</Text>
         <Image
             style={styles.photo}
             source={{ uri: movie.poster }}
             resizeMode="fit" />
-        <Text style={styles.text}>{movie.plot}</Text>
-        <Text style={styles.text}>{movie.durationMinutes}</Text>
-        <Text style={styles.text}>{movie.year}</Text>
-        <Text style={styles.text}>{genreString}</Text>
-        <ShowtimeList showtimes={showtimes}/>
-
+        <LinearGradient
+            colors={['transparent', '#5a0f1d']}
+            style={styles.gradient}/>
+        <Text style={styles.title}>{movie.title}</Text>
+        <Text style={styles.year}>{movie.year}</Text>
+        <Text style={styles.duration}>{movie.durationMinutes} min.</Text>
+        <View style={styles.line}><Text style={styles.plot}>{movie.plot}</Text></View>
+        <Text style={styles.genres}>{genreString}</Text>
     
-
     </View>
 )};
 
