@@ -6,8 +6,6 @@ import styles from './styles';
 import YoutubePlayer from 'react-native-youtube-iframe';
 
 
-
-
 const UpComingDetails = ( { route, navigation: {navigate} } ) => {
     const { title, poster, release, trailers, plot  } = route.params;
     const upComingMovies = useSelector(state => state.upComing)
