@@ -73,7 +73,7 @@ const Cinemas = ( { navigation: {navigate} } ) => {
                         onPress={(id, name, website, description, address, city, phone) => navigate('Cinema details', {id: id, name: name, website: website, description: description, address: address, city: city, phone: phone})}
                         cinemas={newCinemas}/>
             }
-            <Toolbar onPress={() => navigate('Up coming movies')}/>
+            <Toolbar onPress={() => navigate('Upcoming movies')}/>
         </View>
 )};
 

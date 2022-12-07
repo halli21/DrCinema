@@ -49,7 +49,7 @@ const UpComing = ( { navigation: {navigate} } ) => {
                     <Spinner />
                     :
                     <UpComingList 
-                        onPress={( title, poster, release, trailers, plot) => navigate('Up coming movie details', { title: title, poster: poster, release: release, trailers: trailers, plot: plot})}
+                        onPress={( title, poster, release, trailers, plot) => navigate('Upcoming movie details', { title: title, poster: poster, release: release, trailers: trailers, plot: plot})}
                         upComingMovies={upComingMovies}/>
             }
             

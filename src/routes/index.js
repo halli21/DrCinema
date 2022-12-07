@@ -18,8 +18,8 @@ const Routes = () => (
         <Stack.Navigator initialRouteName='Cinemas'>
             <Stack.Screen name="Cinemas" component={Cinemas} />
             <Stack.Screen name="Cinema details" component={CinemaDetails} />
-            <Stack.Screen name="Up coming movies" component={UpComing} />
-            <Stack.Screen name="Up coming movie details" component={UpComingDetails} />
+            <Stack.Screen name="Upcoming movies" component={UpComing} />
+            <Stack.Screen name="Upcoming movie details" component={UpComingDetails} />
             <Stack.Screen name="Movie details" component={MovieDetails} />
         </Stack.Navigator>
     </NavigationContainer>
