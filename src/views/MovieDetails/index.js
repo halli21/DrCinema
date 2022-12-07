@@ -31,12 +31,10 @@ const MovieDetails = ( {route,  navigation: {navigate} } ) => {
     
     if (showtimes.length < 1){
         for (let i = 0; i < movie.showtimes.length; i++) {
-            console.log(i)
             if (movie.showtimes[i].cinema.id == cinemaId) {
-
+                let newList = [...showtimes];
                 for (let j = 0; j < movie.showtimes[i].schedule.length; j++) {
-                    console.log('helloooo     '+ movie.showtimes[i].schedule[j])
-                    let newList = [...showtimes, {
+                    newList = [...newList, {
                         time: movie.showtimes[i].schedule[j].time,
                         purchase_url: movie.showtimes[i].schedule[j].purchase_url
                     }];
