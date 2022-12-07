@@ -37,7 +37,7 @@ const UpComing = ( { navigation: {navigate} } ) => {
         })
     }
     catch(err) {
-        console.log(err, "sorted ting error ye")
+        console.log(err)
     }
 
 
