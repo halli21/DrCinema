@@ -4,6 +4,7 @@ export default StyleSheet.create({
     listContainer: {
         flex: 1,
         marginRight: 10,
-        marginLeft: -10
+        marginLeft: -10,
+        marginBottom: 30
     }
 });
