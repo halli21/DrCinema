@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import { View, ScrollView, Text, Image } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useSelector } from 'react-redux';
-import ShowtimeList from '../../components/ShowtimeList'
-
+import ShowtimeItem from '../../components/ShowtimeItem';
 import styles from './styles';
 
 
@@ -48,7 +47,7 @@ const MovieDetails = ( {route,  navigation: {navigate} } ) => {
 
 
     return (
-    <ScrollView style={styles.container} >
+    <ScrollView style={styles.container} nestedScrollEnabled={true}>
         <Image
             style={styles.photo}
             source={{ uri: movie.poster }}
@@ -63,7 +62,12 @@ const MovieDetails = ( {route,  navigation: {navigate} } ) => {
         <Text style={styles.genres}>{genreString}</Text>
 
         <Text style={styles.showTitle}>Showtimes:</Text>
-        <ShowtimeList showtimes={showtimes} />
+        {
+            showtimes.map((showtime)=> <ShowtimeItem 
+                                            time={showtime.time}
+                                            purchase={showtime.purchase_url}/>)
+        }
+        
     
     </ScrollView>
 )};

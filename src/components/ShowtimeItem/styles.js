@@ -14,8 +14,6 @@ export default StyleSheet.create({
     wrapper: {
         width: '90%',
         marginTop: 15,
-        marginLeft: 25,
-        marginRight: 10,
         paddingLeft: 25,
         paddingRight: 25,
         paddingTop: 10,
