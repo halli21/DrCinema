@@ -37,7 +37,7 @@ const UpComing = ( { navigation: {navigate} } ) => {
         })
     }
     catch(err) {
-        console.log(err)
+        console.log("sorting by release date")
     }
 
 

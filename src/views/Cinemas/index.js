@@ -45,8 +45,9 @@ const Cinemas = ( { navigation: {navigate} } ) => {
         });
     }
     catch(err) {
-        console.log(err)
+        console.log("sorting cinemas")
     }
+
     let newCinemas = []
     try{
         newCinemas = cinemas.map(c => {
@@ -57,7 +58,7 @@ const Cinemas = ( { navigation: {navigate} } ) => {
       })
     }
     catch(err) {
-        console.log(err)
+        console.log("Fetching Cinemas")
     }
 
 

@@ -10,11 +10,9 @@ const UpComingDetails = ( { route, navigation: {navigate} } ) => {
     const { title, poster, release, trailers, plot  } = route.params;
     const upComingMovies = useSelector(state => state.upComing)
     let trailer = false
-    console.log('upComingDetails', trailers.map(trailer => {return trailer.results[0]}))
 
     try {
         trailer = trailers.map(trailer => {return trailer.results[0].key})[0]
-        console.log('trailer', trailer)
     }
     catch(err) {
         console.log("No trailer found")

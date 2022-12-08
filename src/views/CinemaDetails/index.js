@@ -2,7 +2,6 @@ import React, { useState, useEffect} from 'react';
 import { View, Text, TouchableHighlight } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { AntDesign } from '@expo/vector-icons';
-//import { UpCircleOutlined } from '@ant-design/icons';
 import { getMovies } from '../../actions/moviesActions';
 import { selectCinema } from '../../actions/selectActions';
 import MovieList from '../../components/MovieList';
@@ -37,7 +36,7 @@ const CinemaDetails = ( {route,  navigation: {navigate} } ) => {
         cinemaMovies = movies.filter(movie => movie.showtimes.map(cinemas => {return cinemas.cinema.id}).includes(id)); 
     }
     catch(err) {
-        console.log(err)
+        console.log("Fetching movies")
     }
 
     useEffect(() => {
@@ -47,7 +46,6 @@ const CinemaDetails = ( {route,  navigation: {navigate} } ) => {
         }
         if (cinemaMovies.length === 0) {
             setLoadingCinemaMovies(false);
-            console.log('here')
             setNoMovies(false)
         }
     },[movies]);
@@ -108,7 +106,3 @@ const CinemaDetails = ( {route,  navigation: {navigate} } ) => {
 )};
 
 export default CinemaDetails;
-
-//                <Text style={styles.infoDropText}>^</Text>
-//<AntDesign name="uparrow" style={styles.infoDropText} />
-//<UpCircleOutlined />
